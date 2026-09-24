@@ -1,0 +1,72 @@
+# Sound: "let's go gambling" (youtube.com/watch?v=8aJZ_msjauo), slowed 25%.
+# Beats: "Aw dang it" #1 and #2 get roasts; the win jingle gets the reveal.
+
+caption: checking if my old games can pay for my new iPhone
+
+audio:
+  file: audio.m4a # first 20s of youtube.com/watch?v=8aJZ_msjauo
+  start: 0 # seconds into the sound where the video starts
+  speed: 0.9 # 10% slower (pitch kept) for more room between beats
+
+marks:
+  # Checked on the spectrogram (npm run rig -- spectro worth-games --from 1.7 --to 5.3):
+  # the voice's harmonics start at these times.
+  loss1: 2.00 # "Aw dang it" #1 — first roast lands on "Aw"
+  loss2: 3.53 # "Aw dang it" #2 — second roast lands on "Aw"
+  win: 4.87 # the last casino hit before the jingle (spectrogram) — WAIT. lands here
+
+status: {time: "11:27", battery: 1, network: 5G, signal: 3}
+contact: {name: Worth, emoji: "🤑", colors: none}
+layout: {top: 0.33, bottom: 0.8} # top: the thread starts below the caption; bottom: photo tops (and reactions) clear it
+
+history:
+  - stamp: Yesterday 9:14 PM
+  - me: does this actually work
+  - worth: Send me a pic. I tell you what it's worth 🫰
+  - me: bet
+
+events:
+  # Each round: photo -> reaction -> typing dots -> reply on the beat.
+  - stamp: Today 11:26 AM
+  - at: onset:1 # "LET'S"
+    me:
+      photo: {file: photos/game1.jpg, crop: "4:3", prompt: "a scratched PS2 copy of Madden NFL 08 lying on a beige carpet, case slightly cracked"}
+      id: g1
+  - at: 0.6
+    tapback: {kind: 💩, on: g1}
+  - at: loss1
+    typing: 0.77 # starts ~0.6s after the 💩, a short beat of "reading" before Worth types
+    worth: "madden 08?? brother that's $0.40 💀"
+
+  # ~0.75s to read the roast before the next photo pushes it up
+  - at: loss1+0.75
+    me:
+      photo: {file: photos/game2.jpg, crop: "4:3", prompt: "a loose Wii Sports disc with scratches on a wooden desk, no case"}
+      id: g2
+  - at: loss2-0.48
+    tapback: {kind: 🥀, on: g2}
+  - at: loss2
+    typing: 0.4
+    worth: "looks chopped af. $2 if you're lucky"
+
+  # ~0.85s to read the Wii roast; the reaction and typing before WAIT are quick (Worth is shocked)
+  - at: loss2+0.85
+    me:
+      photo: {file: photos/game3.jpg, crop: "4:3", prompt: "an old video game in its original cardboard box with gold cover art, lying on a bed next to its instruction booklet, box corners slightly worn"}
+      id: g3
+  - at: win-0.3
+    tapback: {kind: emphasize, on: g3}
+  - at: win
+    typing: 0.2
+    worth: "[shake]WAIT.[/shake]"
+  - at: win+1.0
+    worth: IS THAT GOLD ZELDA **COMPLETE IN BOX** WITH THE MANUAL??
+  - at: +1.4
+    worth: "that's $380 💸 go get your iPhone"
+  - at: +0.8
+    worth: 🤑🤑🤑
+  - at: +0.6
+    me: WTF
+  - at: +0.5
+    me: LETS GOOOO
+end: win+6.3 # 2s hold on "LETS GOOOO" so viewers can read the thread

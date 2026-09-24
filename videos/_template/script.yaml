@@ -1,0 +1,31 @@
+# One video = one folder in videos/. See AGENTS.md for the full reference.
+# Sound (added in the app):
+
+caption: your caption here
+
+audio:
+  file: audio.mp3 # drop the sound file in this folder
+  start: 0 # seconds into the sound where the video starts
+
+marks: # named sync points (video seconds, or word:/onset: refs after `analyze`)
+  hit: 3.0
+
+status: {time: "11:27", ampm: AM, battery: 64, network: 5G, signal: 3}
+contact: {name: Worth, emoji: "🤑", colors: none}
+
+history:
+  - stamp: Yesterday 9:14 PM
+  - me: does this actually work
+  - worth: send me a pic of anything. I'll tell you what it's worth 🫰
+
+events:
+  - stamp: Today 11:26 AM
+  - at: 0.0
+    me:
+      photo: {file: photos/item1.jpg, prompt: "describe the photo for gen-images"}
+      id: p1
+  - at: +0.25
+    me: what's this worth
+  - at: hit
+    worth: short roast goes here
+end: hit+3

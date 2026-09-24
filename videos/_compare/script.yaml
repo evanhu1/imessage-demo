@@ -1,0 +1,18 @@
+# Visual check against a real iOS 26 screenshot. Not a real video.
+status: {time: "9:35", battery: 90, network: wifi, signal: 3}
+contact: {name: Worth, emoji: "🫰"}
+unread: 2
+history:
+  - worth: yes
+  - worth: Lmao
+  - me: {text: "I can't wait for my spotify wrapped this year I've listened to the most diversity in my whole life", id: long}
+  - tapback: {kind: heart, on: long, by: worth}
+  - stamp: Today 9:34 AM
+  - me: {photo: photos/game3.jpg, id: p}
+  - tapback: {kind: emphasize, on: p, by: worth}
+events:
+  - at: 0.2
+    typing: 0.1
+    worth: ok
+end: 1
+caption: {text: "checking if my old games can pay for my new iPhone", style: box}
